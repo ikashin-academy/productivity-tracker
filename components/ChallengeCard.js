@@ -12,17 +12,20 @@ export default class ChallengeCard extends Component {
         duration={1500}
         style={styles.cardOne}
       >
-        <TouchableOpacity style={styles.boxOne}>
+        <TouchableOpacity
+          style={styles.boxOne}
+          onPress={this.props.screenChange}
+        >
           <View style={styles.container}>
             <FontAwesome name="anchor" size={32} color={theme.bunker} />
           </View>
           <View style={styles.boxTwo}>
-            <Text style={styles.boxTwoText}>Title</Text>
-            <Text style={styles.boxTwoSubtext}>Subtitle</Text>
+            <Text style={styles.boxTwoText}>{this.props.title}</Text>
+            <Text style={styles.boxTwoSubtext}>{this.props.subtitle}</Text>
           </View>
           <View style={styles.boxThree}>
             <View style={styles.boxThreeContent}>
-              <Text style={styles.boxThreeText}>completed</Text>
+              <Text style={styles.boxThreeText}>{this.props.completed}</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -35,11 +38,11 @@ const styles = StyleSheet.create({
   cardOne: {
     flex: 1,
     marginBottom: 15,
-    flexDirection: "row",
   },
   boxOne: {
     paddingHorizontal: 15,
     flex: 1,
+    flexDirection: "row",
   },
   boxTwo: {
     flex: 1.25,

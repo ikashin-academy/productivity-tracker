@@ -39,7 +39,26 @@ export default function App() {
             ),
           }}
         />
-        <Stack.Screen name="Challenge" component={Challenge} />
+        <Stack.Screen
+          name="Challenge"
+          component={Challenge}
+          options={{
+            headerStyle: { height: 100 },
+            headerTransparent: true,
+            title: "",
+            headerRight: () => (
+              <Image source={UserImage} style={styles.userImage} />
+            ),
+            headerLeft: () => (
+              <AntDesign
+                name="menuunfold"
+                size={32}
+                color="black"
+                style={styles.burgerButton}
+              />
+            ),
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

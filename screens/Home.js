@@ -1,13 +1,18 @@
 import { Text, StyleSheet, View, ImageBackground } from "react-native";
 import React, { Component } from "react";
 import Chart from "../assets/chart.png";
-import { ChallengeCard, Day } from "../components";
+import { ChallengeCard, Day, ProjectCard } from "../components";
 import { theme } from "../const";
 
 class Home extends Component {
   state = {
     activeState: "rgba(255, 255, 255, 0.291821)",
   };
+
+  change = () => {
+    return this.props.navigation.navigate("Challenge");
+  };
+
   render() {
     return (
       <View style={styles.homeContainer}>
@@ -36,8 +41,19 @@ class Home extends Component {
             <Text style={styles.progressText}>My Progress</Text>
           </View>
           <View style={styles.cards}>
-            <ChallengeCard />
-            <ChallengeCard />
+            <ChallengeCard
+              title="Challenges"
+              subtitle="7 out of 10 challenges"
+              completed={"70%"}
+              move="bounceInLeft"
+              screenChange={() => this.change()}
+            />
+            <ProjectCard
+              title="Projects"
+              subtitle="2 out of 4 projects"
+              completed={"70%"}
+              move="bounceInRight"
+            />
           </View>
         </View>
       </View>
